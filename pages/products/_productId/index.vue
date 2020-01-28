@@ -11,10 +11,20 @@
 <script>
 export default {
    computed:{
+
        productUrl(){
          return `/products/${this.$route.params.productId}/edit`
        }
-   }
+   },
+    //arg alır
+    //vue.js direk geçip nuxt kontrol ettiği çalıştıgı bir methoddur.(validate)
+   validate(arg){
+          // console.log('arg',arg); -- validate verilerinin hepsimi alr.
+          console.log("arg",arg.params.productId);
+          // değerin int olup olmadıgını kntrol eden regex.
+            return /^\d+$/.test(arg.params.productId);
+           return true;
+       },
 }
 </script>
 <style scoped>
